@@ -40,6 +40,7 @@ class _PriceScreenState extends State<PriceScreen> {
       onChanged: (value) {
         setState(() {
           selectedCurrency = value;
+          updatePrice();
         });
       },
     );
@@ -50,9 +51,12 @@ class _PriceScreenState extends State<PriceScreen> {
       backgroundColor: Colors.lightBlue,
       itemExtent: 32.0,
       onSelectedItemChanged: (selectedIndex) {
-        print(selectedIndex);
+        selectedCurrency = currenciesList[selectedIndex];
+        updatePrice();
       },
       children: currenciesList.map((currency) => Text(currency)).toList(),
+      scrollController: FixedExtentScrollController(
+          initialItem: currenciesList.indexOf(selectedCurrency)),
     );
   }
 
@@ -77,7 +81,7 @@ class _PriceScreenState extends State<PriceScreen> {
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 28.0),
                 child: Text(
-                  '1 BTC = ${btcValue ?? 'Errror'} $selectedCurrency',
+                  '1 BTC = ${btcValue ?? ''} $selectedCurrency',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 20.0,
