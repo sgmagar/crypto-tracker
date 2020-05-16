@@ -1,2 +1,2 @@
 ## Crypto Tracker
-App for tracking price of crypto currency.
+App for tracking price of Cryptocurrencies.
