@@ -7,10 +7,15 @@ class CryptoValue {
   String selectedCurrency;
 
   Future<Map> getAllValues() async {
+    var cryptoData = await networkHelper
+        .getData('/short?crypto=BTC,ETH,LTC&fiat=$selectedCurrency');
     return {
-      "BTC": await getBTCValue(),
-      "ETH": await getETHValue(),
-      "LTC": await getLTCValue()
+      "BTC":
+          cryptoData != null ? cryptoData['BTC$selectedCurrency']['last'] : 0.0,
+      "ETH":
+          cryptoData != null ? cryptoData['ETH$selectedCurrency']['last'] : 0.0,
+      "LTC":
+          cryptoData != null ? cryptoData['LTC$selectedCurrency']['last'] : 0.0
     };
   }
 

@@ -79,11 +79,14 @@ class _PriceScreenState extends State<PriceScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               PriceCard(
-                  priceText: '1 BTC = ${btcValue ?? ''} $selectedCurrency'),
+                  priceText:
+                      '1 BTC = ${btcValue != null ? btcValue.toStringAsFixed(3) : ''} $selectedCurrency'),
               PriceCard(
-                  priceText: '1 ETH = ${ethValue ?? ''} $selectedCurrency'),
+                  priceText:
+                      '1 ETH = ${ethValue != null ? ethValue.toStringAsFixed(3) : ''} $selectedCurrency'),
               PriceCard(
-                  priceText: '1 LTC = ${ltcValue ?? ''} $selectedCurrency'),
+                  priceText:
+                      '1 LTC = ${ltcValue != null ? ltcValue.toStringAsFixed(3) : ''} $selectedCurrency'),
             ],
           ),
           Container(
