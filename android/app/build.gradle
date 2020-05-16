@@ -32,7 +32,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "co.appbrewery.bitcoin_ticker"
+        applicationId "com.sgmagar.crypto_tracker"
         minSdkVersion 16
         targetSdkVersion 29
         versionCode flutterVersionCode.toInteger()

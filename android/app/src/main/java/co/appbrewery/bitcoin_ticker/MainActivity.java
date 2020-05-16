@@ -1,4 +1,4 @@
-package co.appbrewery.bitcoin_ticker;
+package com.sgmagar.crypto_tracker;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

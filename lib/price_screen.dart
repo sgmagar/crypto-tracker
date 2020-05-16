@@ -22,6 +22,11 @@ class _PriceScreenState extends State<PriceScreen> {
   }
 
   void updatePrice() async {
+    setState(() {
+      btcValue = null;
+      ethValue = null;
+      ltcValue = null;
+    });
     CryptoValue cryptoValue = CryptoValue(selectedCurrency);
     Map allValues = await cryptoValue.getAllValues();
     setState(() {
@@ -69,7 +74,7 @@ class _PriceScreenState extends State<PriceScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('🤑 Coin Ticker')),
+        title: Center(child: Text('🤑 Cryptocurrency Tracker')),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -80,13 +85,13 @@ class _PriceScreenState extends State<PriceScreen> {
             children: <Widget>[
               PriceCard(
                   priceText:
-                      '1 BTC = ${btcValue != null ? btcValue.toStringAsFixed(3) : ''} $selectedCurrency'),
+                      '1 BTC = ${btcValue != null ? btcValue.toStringAsFixed(3) : '?'} $selectedCurrency'),
               PriceCard(
                   priceText:
-                      '1 ETH = ${ethValue != null ? ethValue.toStringAsFixed(3) : ''} $selectedCurrency'),
+                      '1 ETH = ${ethValue != null ? ethValue.toStringAsFixed(3) : '?'} $selectedCurrency'),
               PriceCard(
                   priceText:
-                      '1 LTC = ${ltcValue != null ? ltcValue.toStringAsFixed(3) : ''} $selectedCurrency'),
+                      '1 LTC = ${ltcValue != null ? ltcValue.toStringAsFixed(3) : '?'} $selectedCurrency'),
             ],
           ),
           Container(
